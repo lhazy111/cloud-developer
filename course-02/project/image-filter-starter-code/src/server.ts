@@ -37,7 +37,7 @@ import { isUri } from 'valid-url';
     } else if (!isUri(url)) {
       return res.status(400).send("url provided is not valid")
     } else {
-      filterImageFromURL(url).then((filteredimg) => {
+      filterImageFromURL(url).then((filteredimg: string) => {
         res.sendFile(filteredimg);
         res.on("finish", () => deleteLocalFiles([filteredimg]))
       })
